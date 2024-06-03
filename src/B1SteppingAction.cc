@@ -89,7 +89,7 @@ if (Volume->GetName() == "Pixeledplusx"){
 if (ProcessName == "Transportation"){
 if (ParticleName == "opticalphoton"){
 std::ofstream CheckFile1;
-CheckFile1.open("SONTRAC_pixeledplusx.dat", std::ios::app);
+CheckFile1.open("Pixeledplusx.dat", std::ios::app);
 CheckFile1 << TrackID << " " << PosX << " " << PosY << " " << PosZ << " " << KineticEnergy << " " << ParticleName << " " << Volume->GetName() << " " << CopyNumber << " " << ProcessName << G4endl;
 CheckFile1.close();
 }
@@ -99,7 +99,7 @@ if (Volume->GetName() == "Pixeledminusx"){
 if (ProcessName == "Transportation"){
 if (ParticleName == "opticalphoton"){
 std::ofstream CheckFile1;
-CheckFile1.open("SONTRAC_pixeledminusx.dat", std::ios::app);
+CheckFile1.open("Pixeledminusx.dat", std::ios::app);
 CheckFile1 << TrackID << " " << PosX << " " << PosY << " " << PosZ << " " << KineticEnergy << " " << ParticleName << " " << Volume->GetName() << " " << CopyNumber << " " << ProcessName << G4endl;
 CheckFile1.close();
 }
