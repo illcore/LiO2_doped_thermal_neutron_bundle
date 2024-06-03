@@ -98,19 +98,19 @@ CheckFile1.close();
 if (Volume->GetName() == "Pixeledminusx"){
 if (ProcessName == "Transportation"){
 if (ParticleName == "opticalphoton"){
-std::ofstream CheckFile1;
-CheckFile1.open("Pixeledminusx.dat", std::ios::app);
-CheckFile1 << TrackID << " " << PosX << " " << PosY << " " << PosZ << " " << KineticEnergy << " " << ParticleName << " " << Volume->GetName() << " " << CopyNumber << " " << ProcessName << G4endl;
-CheckFile1.close();
+std::ofstream CheckFile2;
+CheckFile2.open("Pixeledminusx.dat", std::ios::app);
+CheckFile2 << TrackID << " " << PosX << " " << PosY << " " << PosZ << " " << KineticEnergy << " " << ParticleName << " " << Volume->GetName() << " " << CopyNumber << " " << ProcessName << G4endl;
+CheckFile2.close();
 }
 }
 }
 if (Volume->GetName() == "TopLidopedlayer"){
 if (ParticleName == "alpha" || ParticleName == "triton"){
-std::ofstream CheckFile1;
-CheckFile1.open("Thermal_neutron_number_alpha_trition.dat", std::ios::app);
-CheckFile1 << TrackID << " " << PosX << " " << PosY << " " << PosZ << " " << KineticEnergy << " " << ParticleName << " " << Volume->GetName() << " " << CopyNumber << " " << ProcessName <<  " " << depositedEnergy << G4endl;
-CheckFile1.close();
+std::ofstream CheckFile3;
+CheckFile3.open("Thermal_neutron_number_alpha_trition.dat", std::ios::app);
+CheckFile3 << TrackID << " " << PosX << " " << PosY << " " << PosZ << " " << KineticEnergy << " " << ParticleName << " " << Volume->GetName() << " " << CopyNumber << " " << ProcessName <<  " " << depositedEnergy << G4endl;
+CheckFile3.close();
 }
 }
 }
