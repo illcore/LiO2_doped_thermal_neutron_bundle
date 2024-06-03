@@ -158,14 +158,14 @@ std::vector<G4double> rcover2= { 1.420, 1.420};
 Cover2->AddProperty("RINDEX", wls_Energy, rcover2);
 Cover2->AddProperty("ABSLENGTH", wls_Energy, absorption1);
 PMMAcover2->SetMaterialPropertiesTable(Cover2);
-G4Tubs* solidEnv1 = new G4Tubs("SolidTub01", 0*cm, 0.050*cm, 2.38*cm, 0*cm, 2*Pi*rad); //its size 
-G4Tubs* solidEnv2 = new G4Tubs("SolidTub02", 0*cm, 0.052*cm, 2.38*cm, 0*cm, 2*Pi*rad); //its size 
-G4Tubs* solidEnv3 = new G4Tubs("SolidTub03", 0*cm, 0.055*cm, 2.38*cm, 0*cm, 2*Pi*rad); //its size
+G4Tubs* solidEnv1 = new G4Tubs("SolidTub01", 0*cm, 0.050*cm, 2.38*cm, 0*cm, 2*Pi*rad);  
+G4Tubs* solidEnv2 = new G4Tubs("SolidTub02", 0*cm, 0.052*cm, 2.38*cm, 0*cm, 2*Pi*rad);  
+G4Tubs* solidEnv3 = new G4Tubs("SolidTub03", 0*cm, 0.055*cm, 2.38*cm, 0*cm, 2*Pi*rad);
 G4SubtractionSolid* Cover1Solid = new G4SubtractionSolid("Cover1", solidEnv2, solidEnv1);
 G4SubtractionSolid* Cover2Solid = new G4SubtractionSolid("Cover2", solidEnv3, solidEnv2);
-//Li-doped layerx     
+//10% LiO2-doped Kuraray Y11-200(M)       
 G4LogicalVolume* Lidopedlayer =                         
-new G4LogicalVolume(solidEnv1, Lidoped, "LogicSolid11");         //its name
+new G4LogicalVolume(solidEnv1, Lidoped, "LogicSolid1");         
 for (int i = 1; i < 21; i++){
 for (int j = 1; j < 35; j++){
                        new G4PVPlacement(rotationMatrix,G4ThreeVector(0*cm, (-1.36+(0.136*(i-1)))*cm,(-2.38+(0.136*j))*cm), Lidopedlayer,"TopLidopedlayer", logicWorld, false, j+(i-1)*34, checkOverlaps);          //                            
@@ -179,16 +179,16 @@ for (int j = 1; j < 35; j++){
   }  
   }
 G4LogicalVolume* XCover2 =                           
-new G4LogicalVolume(Cover2Solid, PMMAcover2, "LogicSolid3");         //its name   
+new G4LogicalVolume(Cover2Solid, PMMAcover2, "LogicSolid3");            
 for (int i = 1; i < 21; i++){    
 for (int j = 1; j < 35; j++){
                        new G4PVPlacement(rotationMatrix,G4ThreeVector(0*cm, (-1.36+(0.136*(i-1)))*cm,(-2.38+(0.136*j))*cm), XCover2,"TopLidopedXCover2", logicWorld, false, j+(i-1)*34, checkOverlaps);          //                            
   }
   }                        
 //Pixels
-G4Box* solidEnv5 = new G4Box("Pixeled", 0.00118*cm, 0.068*cm,0.068*cm);     //its size
+G4Box* solidEnv4 = new G4Box("Pixeled", 0.00118*cm, 0.068*cm,0.068*cm);     
 G4LogicalVolume* Pixeledminusx =                         
-new G4LogicalVolume(solidEnv5, world_mat, "LogicSolid9");         //its name               
+new G4LogicalVolume(solidEnv4, world_mat, "LogicSolid4");                       
    for (int i = 1; i < 21; i++){
    for (int j = 1; j < 35; j++){
                          new G4PVPlacement(0,G4ThreeVector(-2.39*cm,(-1.496+(0.136*i))*cm, (-2.38+(0.136*j))*cm), Pixeledminusx,"Pixeledminusx", logicWorld, false, j+(i-1)*34, checkOverlaps);          //                            
@@ -196,7 +196,7 @@ new G4LogicalVolume(solidEnv5, world_mat, "LogicSolid9");         //its name
   }   
 
 G4LogicalVolume* Pixeledplusx =                         
-new G4LogicalVolume(solidEnv5, world_mat, "LogicSolid10");         //its name               
+new G4LogicalVolume(solidEnv4, world_mat, "LogicSolid5");                 
    for (int i = 1; i < 21; i++){
    for (int j = 1; j < 35; j++){
                          new G4PVPlacement(0,G4ThreeVector(2.39*cm,(-1.496+(0.136*i))*cm, (-2.38+(0.136*j))*cm), Pixeledplusx,"Pixeledplusx", logicWorld, false, j+(i-1)*34, checkOverlaps);          //                            
